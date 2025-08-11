@@ -38,4 +38,3 @@ export class LambdaFunctionsStack extends cdk.Stack {
     );
   }
 }
-

@@ -1,6 +1,9 @@
 import { SQSEvent } from 'aws-lambda';
+import pino from 'pino';
 import { ArticleService } from './services/ArticleService';
 import { QueueService } from './services/QueueService';
+
+const logger = pino();
 
 const articleService = new ArticleService();
 const queueService = new QueueService(process.env.OUTPUT_QUEUE_URL!);
@@ -11,13 +14,10 @@ export const handler = async (event: SQSEvent) => {
       const body = JSON.parse(record.body);
       const articleId = body.articleId;
 
-      console.log(`Processing articleId: ${articleId}`);
-      
       const article = await articleService.getArticleById(articleId);
       await queueService.sendMessage(article);
-      
-    } catch (err) {
-      console.error('Error processing record', err);
+    } catch (error) {
+      logger.error({ err: error }, 'Article handler error');
     }
   }
 };
