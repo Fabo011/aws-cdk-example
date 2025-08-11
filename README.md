@@ -1,34 +1,48 @@
-
 ### IaC Lambda
+
 https://docs.aws.amazon.com/lambda/latest/dg/foundation-iac.html
 
+---
+
 ### Installation
+
 https://docs.aws.amazon.com/lambda/latest/dg/lambda-cdk-tutorial.html
 
-**Install AWS CDK**
+---
+
+1. Install AWS CDK
+
 ```
 npm install -g aws-cdk
 ```
 
-Create a directory for AWS CDK
+2. Create a directory for AWS CDK
+
 ```
 cdk init --language typescript
 ```
 
 A CDK stack is a collection of one or more constructs, which define AWS resources. Each CDK stack represents an AWS CloudFormation stack in your CDK app.
 
+3. Additional Installations
 
-**Installations**
+```
 npm install --save-dev @types/aws-lambda
 npm install @aws-sdk/client-sqs
 npm install --save-dev @types/node
+```
 
+---
 
 ### Deploy
-Check before deploy
+
+Set Credentials
+
 ```
 aws configure
 ```
+
+Check before deploy
 
 ```
 cdk synth
@@ -38,15 +52,23 @@ cdk synth
 cdk deploy
 ```
 
-### Destroy all Services
+---
+
+### Option to Destroy all Services
+
 ```
 cdk destroy
 ```
 
+---
+
 ### Testing
+
 ##### End2End
+
 { "articleId": "123e4567-e89b-12d3-a456-426614174000" }
 
 ##### Unit
+
 - Successful calls
 - Error scenarios
