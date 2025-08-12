@@ -1,7 +1,7 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "explorer.excludeGitIgnore": true,
+  "explorer.excludeGitIgnore": false,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

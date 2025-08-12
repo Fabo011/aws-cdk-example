@@ -2,6 +2,8 @@
 
 https://docs.aws.amazon.com/lambda/latest/dg/foundation-iac.html
 
+Using the AWS CDK as an IaC tool: https://docs.aws.amazon.com/prescriptive-guidance/latest/choose-iac-tool/aws-cdk.html
+
 ---
 
 ### Installation

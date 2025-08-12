@@ -9,6 +9,10 @@ export class LambdaFunctionsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    /**
+     * Construct Docs: https://docs.aws.amazon.com/cdk/v2/guide/constructs.html
+     * Represents one or more AWS CloudFormation resources and their configuration.
+     */
     const inputQueue = new sqs.Queue(this, 'ArticleInputQueue', {
       visibilityTimeout: cdk.Duration.seconds(60),
     });
@@ -18,7 +22,7 @@ export class LambdaFunctionsStack extends cdk.Stack {
     });
 
     const getArticleLambda = new lambda.Function(this, 'GetArticleFunction', {
-      runtime: lambda.Runtime.NODEJS_20_X,
+      runtime: lambda.Runtime.NODEJS_22_X,
       handler: 'index.handler',
       code: lambda.Code.fromAsset(path.join(__dirname, 'lambda-handler')),
       environment: {
